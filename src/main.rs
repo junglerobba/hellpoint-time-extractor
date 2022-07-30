@@ -67,6 +67,13 @@ fn main() {
         pad_zeroes(minutes, 2),
         pad_zeroes(seconds, 2)
     );
+
+    if cfg!(windows) {
+        println!("Press ENTER to exit");
+
+        let mut line = String::new();
+        std::io::stdin().read_line(&mut line).unwrap();
+    }
 }
 
 fn get_save_dir() -> Option<PathBuf> {
